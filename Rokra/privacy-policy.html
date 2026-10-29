@@ -52,7 +52,7 @@ footer{margin-top:40px;padding-top:12px;border-top:2px solid var(--ink);color:va
 </svg>
 <div class="brand"><small>ATMs near you, and whether they have cash</small></div></header>
 <h1>Rokra — Privacy Policy</h1>
-<p><em>Last updated: 2026-10-20</em></p>
+<p><em>Last updated: 2026-10-29</em></p>
 <p>Rokra ("the app", "we", "us") is a Pakistan app that tells you which ATMs near
 you have cash right now, from live reports by people standing at them, and shows
 those ATMs on a map. This policy
@@ -65,6 +65,9 @@ require an account or login.</p>
   are at an ATM when you answer "Is there cash?". It is sent to us only when you
   add a missing ATM (the ATM's position) or choose to send it with a "Wrong
   info?" report. It is never shown to other users and never sold.</li>
+<li><strong>Your bank (optional)</strong>: if you tell the app which bank you mainly use, it
+  shows that bank's ATMs first. Only the bank's name and your town are counted
+  for the owner — never your name, account, card or exact location.</li>
 <li><strong>Name and email</strong>: only collected if you choose to fill in the "Add a bank
   ATM" form. Used solely to process that request and, if needed, follow up with
   you about it.</li>
@@ -145,12 +148,30 @@ No name, photo or location is ever shown on the leaderboard.</p>
 you chose, your message, the app language and version, and your Rokra ID. We use
 it only to answer you and improve the app.</p>
 <h2>2e. Notifications</h2>
-<p>Kaju's reminders (salary day, Eid, "your ATM was approved") are scheduled on your
-phone. Nothing about them is sent to us. You can turn them off in Settings.</p>
+<p>Notifications are off until you say yes, and you can turn each kind on or off in
+Settings → Notifications (or in your phone's settings).</p>
+<ul>
+<li><strong>Made on your phone:</strong> Kaju's reminders (salary day, Eid, "your ATM was
+  approved"), "Did the ATM have cash?" after you start a route, a weekly thank-you
+  and "come back" messages. They are planned on your phone from your own use of the
+  app; nothing about them is sent to us.</li>
+<li><strong>Sent by Rokra (Firebase Cloud Messaging):</strong> news from Rokra and "your bank's ATM
+  near you has cash". Your phone joins <em>topics</em> such as "news in Urdu" or "UBL, the
+  area around 31.5° N 74.3° E (about 20 km across)". The topic list is kept by
+  Google's Firebase Cloud Messaging so it can deliver messages; Rokra does not store
+  your device's messaging token, your topics or your location. The area topics follow
+  the last place you opened Rokra with your location on and expire after 30–60 days
+  if you stop using the app.</li>
+<li><strong>Counts (no identity):</strong> once a day the app sends whether notifications are on,
+  which kinds are on, and how many Rokra notifications you opened — without any name,
+  device ID or location — so the owner can make sure Rokra doesn't send too many.</li>
+<li>Rokra notifications never ask for a PIN, OTP, CNIC or password and never contain
+  links or ads.</li>
+</ul>
 <h2>2f. Services that help run Rokra</h2>
 <ul>
 <li><strong>Google Firebase</strong> (anonymous sign-in and Firestore) stores cash reports and
-  quick updates. The anonymous sign-in has no name, email or phone number.</li>
+  quick updates; <strong>Firebase Cloud Messaging</strong> delivers notifications (section 2e). The anonymous sign-in has no name, email or phone number.</li>
 <li><strong>Google Apps Script, Sheets and Drive</strong> receive the forms above (Add ATM,
   Wrong info?, Help &amp; Support, Add a bank ATM) for the app owner.</li>
 <li><strong>OpenFreeMap</strong> serves the map images (OpenStreetMap data). Like any website,
@@ -172,6 +193,15 @@ invited them. After the friend's first checked action (a cash report or an ATM
 check), the app tells the owner "this phone joined through RK-…", with a
 one-way hash of the friend's random app token so one phone counts once. We do
 not collect the names, numbers or contacts of the people you invite.</p>
+<h2>2h. Your bank (optional)</h2>
+<p>When your location is first on, Rokra asks which bank you mainly use (you can
+answer "Later", and change it any time in Settings). The answer is kept on your
+phone so the list shows that bank's nearest ATMs first. To learn which banks
+Rokra's users rely on in each area, the app also sends the owner <strong>only the
+bank's name and the name of the nearest town</strong> (for example "UBL, Pattoki") —
+no name, account or card number, phone or device id, and not your exact
+location. If you change your bank, the old answer is taken back. These counts
+are kept as totals per bank and town.</p>
 <h2>3. Advertising (AdMob)</h2>
 <p>Rokra shows ads through Google AdMob to remain free to use. AdMob may collect
 an advertising identifier and other technical data (such as device type and
